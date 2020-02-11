@@ -3,6 +3,14 @@ function SnakesLadders() {
   //consequences of snakes and ladders happens after plays
   //so maybe the consequences/conditionals should go up here
   // i need a way to tell this guy which player I am on.
+
+  switch (new play()) {
+    case 0:
+      this.player = "Player 1 ";
+      break;
+    case 1:
+      this.player = "Player 2 ";
+  }
 }
 
 SnakesLadders.prototype.play = function(die1, die2) {
@@ -10,8 +18,9 @@ SnakesLadders.prototype.play = function(die1, die2) {
   //x is found by adding die1 and die2
   //ladders are x === 2, 7 , 8, 15, 21, 28, 36, 51, 71, 78, 87
   //x===2? x=38 : 7? 14 : 8? 31 : 15? 26 :  21? 42: 28? 84 :  36? 44: 51? 67: 71? 91: 78? 98: 87? 94;
-  let playerPlacement = "Player 1 is on square ";
+  let Player = this.player;
   //if(die1===die2) the player gets another turn
+
   // figure out how to switch players and
   let x = 0;
   x += die1 + die2;
@@ -62,7 +71,7 @@ SnakesLadders.prototype.play = function(die1, die2) {
   let result = null;
   //if x > 100 then
   if (x < 100) {
-    result = playerPlacement + x;
+    result = player + " is on " + x;
   } else if (x === 100) {
     result = "Game Over";
   } else if (x > 100) {
